@@ -1,0 +1,62 @@
+﻿@model WebApplication2.Models.GameModel
+
+@{
+    ViewData["Title"] = "Result";
+}
+<br />
+<div class="x_title">
+
+    <h3 style="margin-left:400px;font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
+        RESULT
+    </h3>
+
+</div>
+
+<br />
+
+<table>
+
+
+    <tr>
+        @if (Model.Words != null) { 
+        for (int j = 0; j < Model.Words.Count; j++)
+        {
+            <td id="@j" style="border:solid;height:100px;width:100px;text-align:center">@Model.Words[j]</td>
+        }
+        }
+    </tr>
+
+    <tr>
+        @if (Model.Words != null)
+        {
+            @for (int j = 0; j < Model.ResultPerWord.Count; j++)
+            {
+                <td id="@j" style="border:solid;height:100px;width:100px;text-align:center">@Model.ResultPerWord[j]</td>
+            }
+        }
+        </tr>
+
+
+
+
+
+
+</table>
+<div class="x_title">
+
+    <h3 style="margin-left:400px;font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
+        TOTAL RESULT: @Model.TotalResult
+    </h3>
+</div>
+
+<div class="btn-group  pull-right">
+    <button type="button" class="btn btn-success" onclick="again()"><span style="color:#fff;"></span> PLAY AGAIN </button>
+    </div>
+    @section Scripts {
+        <script>
+    var again = function () {
+    location.href = '@Url.Action("Game","Home")';
+    }
+
+        </script>
+    }
