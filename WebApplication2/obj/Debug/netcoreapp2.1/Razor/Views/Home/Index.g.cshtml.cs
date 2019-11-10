@@ -72,7 +72,7 @@ using WebApplication2.Models;
     ");
             EndContext();
             BeginContext(328, 162, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "defaba2cf3574d20b9ffb8edb3c467e0", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fa3168fc6a574c90bbfe8083bc516d63", async() => {
                 BeginContext(482, 4, true);
                 WriteLiteral("PLAY");
                 EndContext();

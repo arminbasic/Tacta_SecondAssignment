@@ -39,7 +39,7 @@
     </div>
 </div>
 
-<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
     <div class="x_title">
         <h4> Word is: </h4>
         <label id="word"> </label>
@@ -49,36 +49,45 @@
         <br />
         </div>
     </div>
+
+    @using (Html.BeginForm("Result", "Home", new { @class = "form-horizontal form-label-left" }))
+    {<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-        @using (Html.BeginForm("Result", "Home", new { @class = "form-horizontal form-label-left" }))
-        {
+        <div class="table-responsive">
+            <table>
 
-            <div class="table-responsive">
-                <table>
-
-                    <tbody id="selectedTableItems"></tbody>
-                </table>
-            </div>
-
-            <div class="btn-group  pull-right">
-
-                <button type="button" id="add" class="btn btn-primary" onclick="add()"><span style="color:#fff;"></span> ADD </button>
-                <button type="submit" class="btn btn-success">Finish</button>
-            </div>
-        }
+                <tbody id="selectedTableItems"></tbody>
+            </table>
+        </div>
     </div>
-    @section Scripts{
+    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+        <div class="table-responsive">
+            <table>
+
+                <tbody id="selectedTableItems2"></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+    <div class="btn-group  pull-right">
+
+        <button type="button" id="add" class="btn btn-primary" onclick="add1()"><span style="color:#fff;"></span> ADD  </button>
+        <button type="button" id="add2" class="btn btn-danger" onclick="add22()"><span style="color:#fff;"></span> ADD </button>
+        <button type="submit" class="btn btn-success">Finish</button>
+    </div>
+    }
+
+        @section Scripts{
 
 
-        <script>
+            <script>
 
-
+            $('#add2').hide();
 
             $('document').ready(function () {
                 var $td = $('td').click(function () {
                     var bgColor = $(this).css('backgroundColor');
                     var start = document.getElementById("start").innerText;
-                    debugger
                     if (bgColor === "rgb(255, 0, 0)" || (bgColor === "rgb(255, 255, 255)" && start !== "New word")) {
                         alert("Can't click");
                     } else {
@@ -188,10 +197,13 @@
         startTick();
 
 
-            var add = function () {
+            var add1 = function () {
                 addItem(document.getElementById("word").innerText);
 
                 document.getElementById("start").innerText = "New word";
+                $('#add').hide();
+                $('#add2').show();
+
             }
 
 
@@ -225,12 +237,51 @@
             }
 
 
+            var add22 = function () {
+                addItem2(document.getElementById("word").innerText);
 
-           
-        </script>
-    }
+                document.getElementById("start").innerText = "New word";
+                $('#add2').hide();
+                $('#add').show();
+            }
+
+
+            var addItem2 = function (item) {
+
+
+                $('#selectedTableItems2').append('<tr><td>' + item + '</td></tr>');
+                item.Id = $('#selectedTableItems2 tr').length;
+                createModelListItem2(item)
+                $('td').css('backgroundColor', 'white');
+                document.getElementById("word").innerText = "";
+            }
+
+
+            var createModelListItem2 = function (item) {
+                $('<input/>', {
+
+                    name: "Words1",
+                    type: "hidden",
+                    value: item
+                }).appendTo('#selectedTableItems2');
+
+                $('<input/>', {
+
+                    name: "Words1[" + $('#selectedTableItems2 tr').length + "]",
+                    type: "hidden",
+                    value: item
+
+                }).appendTo('#selectedTableItems2');
+
+            }
 
 
 
 
- 
+            </script>
+        }
+
+
+
+
+

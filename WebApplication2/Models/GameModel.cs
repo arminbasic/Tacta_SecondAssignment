@@ -16,5 +16,11 @@ namespace WebApplication2.Models
 
         public int TotalResult { get; set; }
 
+        public List<string> Words1 { get; set; }
+
+        public List<int> ResultPerWord1 { get; set; }
+
+        public int TotalResult1 { get; set; }
+
     }
 }
