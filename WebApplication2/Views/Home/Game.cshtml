@@ -54,16 +54,20 @@
     {<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
         <div class="table-responsive">
+            <div class="x_title">
+                <h4>PLAYER 1:</h4>
+            </div>
             <table>
-
                 <tbody id="selectedTableItems"></tbody>
             </table>
         </div>
     </div>
     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
         <div class="table-responsive">
+            <div class="x_title">
+                <h4>PLAYER 2:</h4>
+            </div>
             <table>
-
                 <tbody id="selectedTableItems2"></tbody>
             </table>
         </div>
@@ -189,6 +193,7 @@
                     alert('END!');
                     clearInterval(_tick);
                     $('#add').hide();
+                    $('#add2').hide();
                 }
             }, 1000);
 

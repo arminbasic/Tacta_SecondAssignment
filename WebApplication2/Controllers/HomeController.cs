@@ -55,6 +55,55 @@ namespace WebApplication2.Controllers
             gameModel.ResultPerWord1 = new List<int>();
             gameModel.TotalResult1 = 0;
 
+
+
+            for (int i=0; i < gameModel.Words.Count; i++)
+            {
+                for (int j = i+1; j < gameModel.Words.Count; j++)
+                {
+                    if (gameModel.Words[i] == gameModel.Words[j])
+                    {
+                        gameModel.Words.RemoveAt(j);
+                    }
+                }
+            }
+
+
+            for (int i = 0; i < gameModel.Words1.Count; i++)
+            {
+                for (int j = i + 1; j < gameModel.Words1.Count; j++)
+                {
+                    if (gameModel.Words1[i] == gameModel.Words1[j])
+                    {
+                        gameModel.Words1.RemoveAt(j);
+                    }
+                }
+            }
+
+
+            if (gameModel.Words!=null && gameModel.Words1 != null)
+            {
+                for (int i=0; i < gameModel.Words.Count; i++)
+                {
+                    for (int j=0; j < gameModel.Words1.Count; j++)
+                    {
+                        if (gameModel.Words[i] == gameModel.Words1[j])
+                        {
+                            if (i > j)
+                            {
+                                gameModel.Words.RemoveAt(i);
+                            }
+                            else
+                            {
+                                gameModel.Words1.RemoveAt(j);
+                            }
+                        }
+                    }
+                }
+            }
+
+
+
             if (gameModel.Words != null) {
 
             for (int i=0; i < gameModel.Words.Count; i++)
@@ -99,7 +148,7 @@ namespace WebApplication2.Controllers
             }
 
 
-            if (gameModel.Words != null)
+            if (gameModel.Words1 != null)
             {
 
                 for (int i = 0; i < gameModel.Words1.Count; i++)
