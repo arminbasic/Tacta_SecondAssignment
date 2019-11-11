@@ -30,7 +30,7 @@ namespace WebApplication2.Controllers
                 
             };
 
-
+            //Get random letter for the game to be displayed, in two-dimensional array 4x4
             for (int i=0; i <= 3; i++)
             {
                 for (int j=0; j <= 3; j++)
@@ -55,7 +55,7 @@ namespace WebApplication2.Controllers
             gameModel.ResultPerWord1 = new List<int>();
             gameModel.TotalResult1 = 0;
 
-
+            //checking if there are same words for player1
             if (gameModel.Words != null) {
             for (int i=0; i < gameModel.Words.Count; i++)
             {
@@ -69,6 +69,8 @@ namespace WebApplication2.Controllers
             }
             }
 
+
+            //checking if there are same words for player1
             if (gameModel.Words1 != null)
             {
                 for (int i = 0; i < gameModel.Words1.Count; i++)
@@ -83,6 +85,7 @@ namespace WebApplication2.Controllers
                 }
             }
 
+            //checking if there are the same words in both player's lists
             if (gameModel.Words!=null && gameModel.Words1 != null)
             {
                 for (int i=0; i < gameModel.Words.Count; i++)
@@ -105,7 +108,7 @@ namespace WebApplication2.Controllers
             }
 
 
-
+            
             if (gameModel.Words != null) {
 
             for (int i=0; i < gameModel.Words.Count; i++)
@@ -115,7 +118,7 @@ namespace WebApplication2.Controllers
 
 
 
-
+            //get result for each of the words in the list for Player 1
             for (int i=0; i < gameModel.Words.Count; i++) {
             
                 if (gameModel.Words[i].Length == 3 || gameModel.Words[i].Length == 4)
@@ -141,7 +144,7 @@ namespace WebApplication2.Controllers
                 }
 
  }
-            
+            //sum total result for Player 1
           for (int i=0; i < gameModel.ResultPerWord.Count; i++)
             {
                 gameModel.TotalResult += gameModel.ResultPerWord[i];
@@ -161,6 +164,7 @@ namespace WebApplication2.Controllers
 
 
 
+                //get result for each of the words in the list for Player 2
                 for (int i = 0; i < gameModel.Words1.Count; i++)
                 {
 
@@ -188,6 +192,8 @@ namespace WebApplication2.Controllers
 
                 }
 
+
+                //sum total result for Player 2
                 for (int i = 0; i < gameModel.ResultPerWord1.Count; i++)
                 {
                     gameModel.TotalResult1 += gameModel.ResultPerWord1[i];
